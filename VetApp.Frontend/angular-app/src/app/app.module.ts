@@ -8,6 +8,7 @@ import { WelcomeSectionComponent } from './welcome-section/welcome-section.compo
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AppointmentsService} from "./services/appointments.service";
 
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
   {path:'',component:WelcomeSectionComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [AppointmentsService],
   bootstrap: [AppComponent]
