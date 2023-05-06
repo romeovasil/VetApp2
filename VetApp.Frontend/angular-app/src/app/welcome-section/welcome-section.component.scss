@@ -1,0 +1,36 @@
+.welcome-container{
+  margin-top: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-title{
+  font-weight: bolder;
+  font-size: 100px;
+
+}
+
+.appointments-button{
+  background-color: greenyellow;
+  border-radius: 20px;
+  border: 1px;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.appointments-button:hover{
+  background-color: green;
+  color:yellow;
+}
+
+.appointments-button:active{
+  background-color: red;
+  color:white;
+}
