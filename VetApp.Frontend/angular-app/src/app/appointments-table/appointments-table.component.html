@@ -1,4 +1,36 @@
-<div *ngFor="let appointment of appointments">
-  <p>{{appointment.animal}} {{appointment.diagnostic}} {{appointment.doctor_name}} {{appointment.data}} {{appointment.time}} {{appointment.procedures}} {{appointment.status}}</p>
+<div class="appointments-page">
+
+<div class="appointments-title">
+  Appointments
 </div>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Diagnostic</th>
+      <th>Doctor name</th>
+      <th>Data</th>
+      <th>Time</th>
+      <th>Procedures</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let tempAppointment of appointments">
+      <td>{{tempAppointment.animal}}</td>
+      <td>{{tempAppointment.diagnostic}}</td>
+      <td>{{tempAppointment.doctor_name}}</td>
+      <td>{{tempAppointment.data}}</td>
+      <td>{{tempAppointment.time}}</td>
+      <td>{{tempAppointment.procedures}}</td>
+      <td>{{tempAppointment.status}}</td>
+
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
