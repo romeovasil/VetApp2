@@ -12,6 +12,14 @@ export class AppointmentsService {
 
   constructor(private http:HttpClient) { }
 
+
+  getAppointmentListPaginated(thePage:number,thePageSize:number): Observable<GetResponseAppointments> {
+    const pageUrl = `${this.appointmentsUrl}`+`?page=${thePage}&size=${thePageSize}`
+    return this.http.get<GetResponseAppointments>(pageUrl);
+
+  }
+
+
   getAppointmentList(): Observable<Appointment[]> {
     return this.http.get<GetResponseAppointments>(this.appointmentsUrl).pipe(map(response => response._embedded.appointments));
 
@@ -21,5 +29,11 @@ export class AppointmentsService {
 interface GetResponseAppointments {
   _embedded: {
     appointments: Appointment[];
+  },
+  page:{
+    size:number,
+    totalElements:number,
+    totalPages:number,
+    number:number
   }
 }

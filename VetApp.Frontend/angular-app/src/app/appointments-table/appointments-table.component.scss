@@ -5,6 +5,7 @@
 table {
   width: 80%;
   margin-left: 10%;
+  margin-right: 10%;
   border-collapse: collapse;
   margin-top: 10% ;
   background-color: lavender;
@@ -40,4 +41,24 @@ tbody tr:hover {
   font-size: 50px;
   margin-left: 10%;
   margin-top: 5%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.page-buttons{
+  margin-top: 15px;
+  text-align: right;
+  margin-right: 10%;
+}
+.next-page{
+  margin-left: 10px;
+  width: 50px;
+  background-color: gold;
+
+}
+.prev-page{
+  width: 50px;
+  background-color: gold;
 }
