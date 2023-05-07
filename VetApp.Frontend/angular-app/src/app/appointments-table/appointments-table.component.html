@@ -1,10 +1,8 @@
-<div class="appointments-page">
-
-<div class="appointments-title">
-  Appointments
-</div>
-
 <div class="container">
+  <div class="appointments-title">
+    Appointments
+  </div>
+    <button class="doctors-button" routerLink="/appointments">Back to doctors</button>
 <table>
   <thead>
     <tr>
@@ -22,7 +20,7 @@
     <tr *ngFor="let tempAppointment of appointments">
       <td>{{tempAppointment.animal}}</td>
       <td>{{tempAppointment.diagnostic}}</td>
-      <td>{{tempAppointment.doctor_name}}</td>
+      <td>{{tempAppointment.doctorName}}</td>
       <td>{{tempAppointment.data}}</td>
       <td>{{tempAppointment.time}}</td>
       <td>{{tempAppointment.procedures}}</td>
@@ -39,5 +37,6 @@
 
   </div>
 
+
 </div>
-</div>
+

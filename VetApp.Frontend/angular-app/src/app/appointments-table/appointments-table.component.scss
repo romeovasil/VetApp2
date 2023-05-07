@@ -7,7 +7,7 @@ table {
   margin-left: 10%;
   margin-right: 10%;
   border-collapse: collapse;
-  margin-top: 10% ;
+  margin-top: 30px;
   background-color: lavender;
 }
 
@@ -36,12 +36,6 @@ tbody tr:hover {
 }
 
 
-.appointments-title{
-  font-weight: bolder;
-  font-size: 50px;
-  margin-left: 10%;
-  margin-top: 5%;
-}
 
 .container{
   display: flex;
@@ -61,4 +55,20 @@ tbody tr:hover {
 .prev-page{
   width: 50px;
   background-color: gold;
+}
+
+.doctors-button{
+  width: 120px;
+  height: 30px;
+  margin-top: 75px;
+  margin-left: 11%;
+  background-color: lightsalmon;
+
+}
+
+.appointments-title{
+  font-weight: bolder;
+  font-size: 50px;
+  margin-left: 10%;
+  margin-top: 4% ;
 }

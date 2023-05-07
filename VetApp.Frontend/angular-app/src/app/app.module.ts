@@ -9,10 +9,14 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AppointmentsService} from "./services/appointments.service";
 
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { AppointmentsSectionComponent } from './appointments-section/appointments-section.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeSectionComponent},
-  {path: 'appointments', component: AppointmentsTableComponent}
+  {path: 'appointments/:doctorName', component: AppointmentsTableComponent},
+  {path: 'appointments', component: AppointmentsSectionComponent},
+  {path: 'appointments/all', component: AppointmentsTableComponent},
+
 ]
 
 
@@ -20,7 +24,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AppointmentsTableComponent,
-    WelcomeSectionComponent
+    WelcomeSectionComponent,
+    AppointmentsSectionComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

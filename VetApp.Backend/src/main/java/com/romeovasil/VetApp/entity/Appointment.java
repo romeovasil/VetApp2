@@ -18,7 +18,7 @@ public class Appointment {
     @Column(name = "time")
     private String time;
     @Column(name = "doctor_name")
-    private String doctor_name;
+    private String doctorName;
     @Column(name = "diagnostic")
     private String diagnostic;
     @Column(name = "status")

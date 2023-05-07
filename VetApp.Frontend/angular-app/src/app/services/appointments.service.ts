@@ -16,13 +16,18 @@ export class AppointmentsService {
   getAppointmentListPaginated(thePage:number,thePageSize:number): Observable<GetResponseAppointments> {
     const pageUrl = `${this.appointmentsUrl}`+`?page=${thePage}&size=${thePageSize}`
     return this.http.get<GetResponseAppointments>(pageUrl);
-
   }
 
 
-  getAppointmentList(): Observable<Appointment[]> {
-    return this.http.get<GetResponseAppointments>(this.appointmentsUrl).pipe(map(response => response._embedded.appointments));
-
+  getAppointmentListPaginatedByDoctorName(doctorName:string,thePage:number,thePageSize:number): Observable<GetResponseAppointments> {
+    let pageUrl = `${this.appointmentsUrl}`+`?page=${thePage}&size=${thePageSize}`
+    if(doctorName!="all")
+    {
+      pageUrl = `${this.appointmentsUrl}`+`/search/findByDoctorName?doctorName=${doctorName}&page=${thePage}&size=${thePageSize}`
+      console.log(doctorName);
+      console.log(pageUrl);
+    }
+    return this.http.get<GetResponseAppointments>(pageUrl);
   }
 }
 
