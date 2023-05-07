@@ -29,10 +29,20 @@ export class AddNewAppointmentComponent implements OnInit{
     if (this.checkoutFormGroup.invalid) {
       console.log("invalid")
       this.checkoutFormGroup.markAllAsTouched();
+      this
       return;
     }
     else{
       console.log("valid")
+      this.checkoutFormGroup.reset();
     }
   }
+
+
+  get animalName() { return this.checkoutFormGroup.get('animalName'); }
+  get doctorName() { return this.checkoutFormGroup.get('doctorName'); }
+  get date() { return this.checkoutFormGroup.get('date'); }
+  get time() { return this.checkoutFormGroup.get('time'); }
+  get procedures() { return this.checkoutFormGroup.get('procedures'); }
+
 }

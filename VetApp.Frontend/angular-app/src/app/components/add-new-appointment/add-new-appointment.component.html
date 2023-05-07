@@ -4,19 +4,39 @@
     <h3>New appointment</h3>
 
     <div class="row">
-      <div><label>Animal name</label><input class="input-space" formControlName="animalName"type="text"></div>
+      <div><label>Animal name</label>
+        <input class="input-space" formControlName="animalName"type="text">
+          <div *ngIf="animalName?.invalid && (animalName?.dirty || animalName?.touched)" class="alert">
+            <p>Animal name required</p>
+          </div>
+      </div>
     </div>
 
     <div class="row">
-      <div><label>Doctor name</label><input class="input-space" formControlName="doctorName"type="text"></div>
+      <div><label>Doctor name</label>
+        <input class="input-space" formControlName="doctorName"type="text">
+        <div *ngIf="doctorName?.invalid && (doctorName?.dirty || doctorName?.touched)" class="alert">
+          <p>Animal name required</p>
+        </div>
+      </div>
     </div>
 
     <div class="row">
-      <div><label>Date</label><input class="input-space" formControlName="date" type="date"></div>
+      <div><label>Date</label>
+        <input class="input-space" formControlName="date" type="date">
+        <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="alert">
+          <p>Select a date</p>
+        </div>
+      </div>
     </div>
 
     <div class="row">
-      <div><label>Time</label><input class="input-space"  formControlName="time" type="time"></div>
+      <div><label>Time</label>
+        <input class="input-space"  formControlName="time" type="time">
+        <div *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="alert">
+          <p>Select an hour</p>
+        </div>
+      </div>
     </div>
 
     <div class="row">
@@ -24,7 +44,11 @@
         <option>Vaccin</option>
         <option>Perfuzii</option>
         <option>Deparazitare</option>
-      </select> </div>
+      </select>
+        <div *ngIf="procedures?.invalid && (procedures?.dirty || procedures?.touched)" class="alert">
+          <p>Select a procedure</p>
+        </div>
+      </div>
     </div>
 
     <div>
