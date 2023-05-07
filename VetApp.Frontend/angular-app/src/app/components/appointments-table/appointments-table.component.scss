@@ -59,7 +59,7 @@ tbody tr:hover {
 
 .doctors-button{
   width: 120px;
-  height: 30px;
+  height: 35px;
   margin-top: 75px;
   margin-left: 11%;
   background-color: lightsalmon;
@@ -71,4 +71,17 @@ tbody tr:hover {
   font-size: 50px;
   margin-left: 10%;
   margin-top: 4% ;
+}
+
+.top-buttons{
+  display: flex;
+  flex-direction: row;
+}
+.add-appointment{
+  margin-right: 10%;
+  width: 120px;
+  height: 35px;
+  background-color: lightsalmon;
+  margin-top: 75px;
+  margin-left: 60%;
 }

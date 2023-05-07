@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Appointment} from "../common/appointment";
-import {AppointmentsService} from "../services/appointments.service";
+import {Appointment} from "../../common/appointment";
+import {AppointmentsService} from "../../services/appointments.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
