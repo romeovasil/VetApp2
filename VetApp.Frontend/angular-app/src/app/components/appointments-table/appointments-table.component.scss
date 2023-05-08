@@ -85,3 +85,26 @@ tbody tr:hover {
   margin-top: 75px;
   margin-left: 60%;
 }
+.edit{
+  text-align: center;
+}
+
+.edit-button{
+  background-color: salmon;
+  border-color: black;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.edit-button:hover{
+  background-color: green;
+  color: yellow;
+}
+
+.edit-button:active{
+  background-color: red;
+}
+
+

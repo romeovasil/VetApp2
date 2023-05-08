@@ -15,13 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EditSectionComponent } from './components/edit-section/edit-section.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeSectionComponent},
   {path: 'appointments/:doctorName', component: AppointmentsTableComponent},
   {path: 'appointments', component: AppointmentsSectionComponent},
   {path: 'appointments/all', component: AppointmentsTableComponent},
-  {path: 'addNewAppointment', component: AddNewAppointmentComponent}
+  {path: 'addNewAppointment', component: AddNewAppointmentComponent},
+  {path:'editAppointment',component:EditSectionComponent}
 ]
 
 
@@ -31,7 +33,8 @@ const routes: Routes = [
     AppointmentsTableComponent,
     WelcomeSectionComponent,
     AppointmentsSectionComponent,
-    AddNewAppointmentComponent
+    AddNewAppointmentComponent,
+    EditSectionComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
