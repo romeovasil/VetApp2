@@ -29,6 +29,10 @@ export class AppointmentsService {
     }
     return this.http.get<GetResponseAppointments>(pageUrl);
   }
+
+  addNewAppointment(appointment: Appointment):Observable<any> {
+    return this.http.post<Appointment>(this.appointmentsUrl,appointment);
+  }
 }
 
 interface GetResponseAppointments {

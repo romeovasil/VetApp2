@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Appointment} from "../../common/appointment";
+import {AppointmentsService} from "../../services/appointments.service";
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Appointment} from "../../common/appointment";
 export class AddNewAppointmentComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
 
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder,private appointmentService:AppointmentsService) {
   }
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -31,13 +32,20 @@ export class AddNewAppointmentComponent implements OnInit{
       this.checkoutFormGroup.markAllAsTouched();
 
       return;
-    }
-    else{
+    } else {
       console.log("valid")
       let appointment = this.createNewAppointment();
       console.log(appointment);
+      this.appointmentService.addNewAppointment(appointment).subscribe(
+        response => {
+          console.log('Appointment saved successfully:', response);
+        },
+        error => {
+          console.error('Error saving appointment:', error);
+        }
+      );
 
-      this.checkoutFormGroup.reset();
+
     }
   }
 
