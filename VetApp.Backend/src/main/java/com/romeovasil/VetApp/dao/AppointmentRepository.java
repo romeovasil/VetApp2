@@ -13,6 +13,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 
     Page<Appointment> findByDoctorName(@Param("doctorName") String doctorName, Pageable pageable);
 
+
 }
 
 

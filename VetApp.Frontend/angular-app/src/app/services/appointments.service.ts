@@ -13,9 +13,9 @@ export class AppointmentsService {
   constructor(private http:HttpClient) { }
 
 
-  getAppointmentListPaginated(thePage:number,thePageSize:number): Observable<GetResponseAppointments> {
-    const pageUrl = `${this.appointmentsUrl}`+`?sort=data,time&page=${thePage}&size=${thePageSize}`
-    return this.http.get<GetResponseAppointments>(pageUrl);
+  getAppointment(id:number): Observable<Appointment> {
+    const appointmentUrl = `${this.appointmentsUrl}`+`/${id}`
+    return this.http.get<Appointment>(appointmentUrl);
   }
 
 
