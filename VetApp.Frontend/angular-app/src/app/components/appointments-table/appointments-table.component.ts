@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-appointments-table',
@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./appointments-table.component.scss']
 })
 export class AppointmentsTableComponent implements OnInit{
-
+  id:number=0;
   appointments:Appointment[]=[];
   doctorName:string="";
   thePageNumber:number=1;
@@ -17,7 +17,7 @@ export class AppointmentsTableComponent implements OnInit{
   thePageSize:number=5;
   theTotalElements:number=0;
 
-  constructor(private appointmentService:AppointmentsService ,private route:ActivatedRoute) {
+  constructor(private appointmentService:AppointmentsService ,private route:ActivatedRoute,private router:Router) {
   }
 
   ngOnInit(): void {
@@ -60,5 +60,14 @@ export class AppointmentsTableComponent implements OnInit{
       this.currentPageNumber = this.currentPageNumber - 1;
       this.listAppointments();
     }
+  }
+
+
+
+
+  editAppointment(tempAppointment: Appointment) {
+    console.log("edit")
+    console.log(tempAppointment.id)
+    this.router.navigate(['/editAppointment',tempAppointment.id]);
   }
 }

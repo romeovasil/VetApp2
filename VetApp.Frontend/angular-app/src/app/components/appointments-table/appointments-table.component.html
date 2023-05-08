@@ -28,7 +28,7 @@
       <td>{{tempAppointment.time}}</td>
       <td>{{tempAppointment.procedures}}</td>
       <td>{{tempAppointment.status}}</td>
-      <td class="edit"><button class="edit-button" routerLink="/editAppointment">edit</button></td>
+      <td class="edit"><button class="edit-button" (click)="editAppointment(tempAppointment)">edit</button></td>
 
 
     </tr>

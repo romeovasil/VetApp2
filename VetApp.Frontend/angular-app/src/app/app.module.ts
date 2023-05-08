@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'appointments', component: AppointmentsSectionComponent},
   {path: 'appointments/all', component: AppointmentsTableComponent},
   {path: 'addNewAppointment', component: AddNewAppointmentComponent},
-  {path:'editAppointment',component:EditSectionComponent}
+  {path:'editAppointment/:id',component:EditSectionComponent}
 ]
 
 
