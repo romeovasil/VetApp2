@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Appointment} from "../../common/appointment";
 
 
 @Component({
@@ -25,19 +26,33 @@ export class AddNewAppointmentComponent implements OnInit{
 
 
   onSubmit() {
-    console.log("works")
     if (this.checkoutFormGroup.invalid) {
       console.log("invalid")
       this.checkoutFormGroup.markAllAsTouched();
-      this
+
       return;
     }
     else{
       console.log("valid")
+      let appointment = this.createNewAppointment();
+      console.log(appointment);
+
       this.checkoutFormGroup.reset();
     }
   }
 
+
+  createNewAppointment(){
+    let appointment = new Appointment();
+    appointment.animal=this.animalName?.value;
+    appointment.doctorName=this.doctorName?.value;
+    appointment.data = this.date?.value;
+    appointment.time = this.time?.value;
+    appointment.procedures = this.procedures?.value;
+    appointment.status="creata";
+    appointment.diagnostic="investigare...";
+    return appointment;
+  }
 
   get animalName() { return this.checkoutFormGroup.get('animalName'); }
   get doctorName() { return this.checkoutFormGroup.get('doctorName'); }
