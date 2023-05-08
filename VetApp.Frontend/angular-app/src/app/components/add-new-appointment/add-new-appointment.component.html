@@ -1,22 +1,27 @@
-<form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+<div class="title">
+  <h3>New appointment</h3>
+</div>
+<form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="form">
 
 
-    <h3>New appointment</h3>
+
 
     <div class="row">
       <div><label>Animal name</label>
+
         <input class="input-space" formControlName="animalName"type="text">
           <div *ngIf="animalName?.invalid && (animalName?.dirty || animalName?.touched)" class="alert">
-            <p>Animal name required</p>
+            Animal name required
           </div>
       </div>
+
     </div>
 
     <div class="row">
       <div><label>Doctor name</label>
         <input class="input-space" formControlName="doctorName"type="text">
         <div *ngIf="doctorName?.invalid && (doctorName?.dirty || doctorName?.touched)" class="alert">
-          <p>Animal name required</p>
+          Doctor name required
         </div>
       </div>
     </div>
@@ -25,7 +30,7 @@
       <div><label>Date</label>
         <input class="input-space" formControlName="date" type="date">
         <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="alert">
-          <p>Select a date</p>
+          Select a date
         </div>
       </div>
     </div>
@@ -34,7 +39,7 @@
       <div><label>Time</label>
         <input class="input-space"  formControlName="time" type="time">
         <div *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="alert">
-          <p>Select an hour</p>
+          Select an hour
         </div>
       </div>
     </div>
@@ -46,14 +51,18 @@
         <option>Deparazitare</option>
       </select>
         <div *ngIf="procedures?.invalid && (procedures?.dirty || procedures?.touched)" class="alert">
-          <p>Select a procedure</p>
+          Select a procedure
         </div>
       </div>
     </div>
 
     <div>
-      <button type="submit">Add</button>
+      <button class="submit-button" type="submit">Confirm appointment</button>
     </div>
 
 
 </form>
+
+  <div >
+    <button class="back-button"  routerLink="/appointments">Back</button>
+  </div>

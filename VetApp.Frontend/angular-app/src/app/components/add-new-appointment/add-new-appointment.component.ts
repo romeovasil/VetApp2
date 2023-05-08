@@ -39,6 +39,7 @@ export class AddNewAppointmentComponent implements OnInit{
       this.appointmentService.addNewAppointment(appointment).subscribe(
         response => {
           console.log('Appointment saved successfully:', response);
+          this.checkoutFormGroup.reset();
         },
         error => {
           console.error('Error saving appointment:', error);
