@@ -10,3 +10,82 @@
 {{appointment?.time}}
 
 
+<form *ngIf ="selectedProcedure" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="form">
+
+
+
+
+  <div class="row">
+    <div><label>Animal name</label>
+
+      <input class="input-space" formControlName="animalName"type="text" >
+      <div *ngIf="animalName?.invalid && (animalName?.dirty || animalName?.touched)" class="alert">
+        Animal name required
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div><label>Doctor name</label>
+      <input class="input-space" formControlName="doctorName"type="text" >
+      <div *ngIf="doctorName?.invalid && (doctorName?.dirty || doctorName?.touched)" class="alert">
+        Doctor name required
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><label>Date</label>
+      <input class="input-space" formControlName="date" type="date" >
+      <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="alert">
+        Select a date
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><label>Time</label>
+      <input class="input-space"  formControlName="time" type="time" >
+      <div *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="alert">
+        Select an hour
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><label>Status</label>
+      <input class="input-space"  formControlName="status" type="text" >
+      <div *ngIf="status?.invalid && (status?.dirty || status?.touched)" class="alert">
+        Select a status
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><label>Diagnostic</label>
+      <input class="input-space"  formControlName="diagnostic" type="text" >
+      <div *ngIf="diagnostic?.invalid && (diagnostic?.dirty || diagnostic?.touched)" class="alert">
+        Select a diagnostic
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div><label>Procedures</label> <select class="input-space" formControlName="procedures"  >
+      <option [ngValue]="'Perfuzii'">Perfuzii</option>
+      <option [ngValue]="'Vaccin'">Vaccin</option>
+      <option [ngValue]="'Deparazitare'">Deparazitare</option>
+    </select>
+      <div *ngIf="procedures?.invalid && (procedures?.dirty || procedures?.touched)" class="alert">
+        Select a procedure
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button class="submit-button" type="submit">Confirm appointment</button>
+  </div>
+
+
+</form>

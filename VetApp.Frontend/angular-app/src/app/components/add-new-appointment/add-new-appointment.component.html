@@ -9,7 +9,7 @@
     <div class="row">
       <div><label>Animal name</label>
 
-        <input class="input-space" formControlName="animalName"type="text">
+        <input class="input-space" formControlName="animalName"type="text" >
           <div *ngIf="animalName?.invalid && (animalName?.dirty || animalName?.touched)" class="alert">
             Animal name required
           </div>
