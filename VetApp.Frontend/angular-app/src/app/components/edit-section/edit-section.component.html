@@ -70,10 +70,9 @@
   </div>
 
   <div class="row">
-    <div><label>Procedures</label> <select class="input-space" formControlName="procedures"  >
-      <option [ngValue]="'Perfuzii'">Perfuzii</option>
-      <option [ngValue]="'Vaccin'">Vaccin</option>
-      <option [ngValue]="'Deparazitare'">Deparazitare</option>
+    <div><label>Procedures</label> <select class="input-space" formControlName="procedures" >
+      <option [ngValue]="procedure.name" *ngFor="let procedure of proceduresList">{{procedure.name}}</option>
+
     </select>
       <div *ngIf="procedures?.invalid && (procedures?.dirty || procedures?.touched)" class="alert">
         Select a procedure

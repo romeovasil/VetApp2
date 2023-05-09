@@ -4,6 +4,8 @@ import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../../validators/customValidators";
+import {Procedure} from "../../common/procedure";
+import {ProceduresService} from "../../services/procedures.service";
 
 @Component({
   selector: 'app-edit-section',
@@ -15,8 +17,12 @@ export class EditSectionComponent implements OnInit{
   appointment:Appointment|null=null;
   checkoutFormGroup!: FormGroup;
   selectedProcedure: boolean=false;
+  proceduresList:Procedure[] =[];
+  procedureToEdit:string="";
 
-  constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,private formBuilder:FormBuilder,private router:Router) {
+  constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,
+              private formBuilder:FormBuilder,private router:Router,
+              private proceduresService:ProceduresService) {
 
   }
 
@@ -25,6 +31,12 @@ export class EditSectionComponent implements OnInit{
     this.appointmentsService.getAppointment(this.id).subscribe(
       data=> {this.appointment=data;
 
+    this.proceduresService.getProcedures().subscribe(data=>{
+      this.proceduresList=data;
+
+    })
+
+        this.procedureToEdit=data.procedures;
 
     this.checkoutFormGroup.patchValue({
       animalName: data.animal,
