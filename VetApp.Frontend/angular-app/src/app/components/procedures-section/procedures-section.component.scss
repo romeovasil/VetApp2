@@ -1,0 +1,67 @@
+
+table {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: lavender;
+}
+
+thead {
+  background-color: gold;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  border: 4px solid lightsalmon;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+  border: 4px solid darkgrey;
+}
+tbody tr:hover {
+  background-color: lightgrey;
+}
+
+.back-button{
+  margin-top: 10px;
+  margin-left: 10%;
+  font-size: 15px;
+  height: 30px;
+  width: 80px;
+  background-color: salmon;
+  border-radius: 10px;
+  border-color: black;
+
+}
+
+
+.title{
+  font-size: 50px;
+  margin-left: 10%;
+  margin-top: 5%;
+  color:salmon;
+  font-weight: bolder;
+  margin-bottom: 120px;
+}
+
+.procedure-button{
+  margin-top: 100px;
+  margin-left: 10%;
+  font-size: 15px;
+  height: 30px;
+  width: 130px;
+  background-color: salmon;
+  border-radius: 10px;
+  border-color: black;
+
+}

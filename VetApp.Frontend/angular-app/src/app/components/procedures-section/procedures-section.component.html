@@ -1,3 +1,30 @@
-<div *ngFor="let procedure of procedures">
-    {{procedure.id}} {{procedure.name}} {{procedure.price}}
-</div>
+
+  <div class="title">
+      Procedures
+  </div>
+
+  <div>
+    <button class="back-button" routerLink="/">Back</button>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Procedure name</th>
+      <th>price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let tempProcedure of procedures">
+      <td>{{tempProcedure.name}}</td>
+      <td>{{tempProcedure.price | currency:'RON '}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <button class="procedure-button" >Add procedure</button>
+  </div>
+
+
