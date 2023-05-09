@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -15,7 +15,7 @@ export class EditSectionComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
   selectedProcedure: boolean=false;
 
-  constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,private formBuilder:FormBuilder) {
+  constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,private formBuilder:FormBuilder,private router:Router) {
 
   }
 
@@ -45,7 +45,7 @@ export class EditSectionComponent implements OnInit{
       date: new FormControl('',Validators.required),
       time: new FormControl('',Validators.required),
       status: new FormControl('',Validators.required),
-      diagnostic: new FormControl('',Validators.required),
+      diagnostic: new FormControl(''),
       procedures: new FormControl('',Validators.required)
 
     });
@@ -66,6 +66,7 @@ export class EditSectionComponent implements OnInit{
         response => {
           console.log('Appointment saved successfully:', response);
           this.checkoutFormGroup.reset();
+          this.router.navigateByUrl("\appointments");
         },
         error => {
           console.error('Error saving appointment:', error);

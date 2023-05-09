@@ -59,7 +59,7 @@ export class AddNewAppointmentComponent implements OnInit{
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
     appointment.status="creata";
-    appointment.diagnostic="investigare...";
+    appointment.diagnostic="";
     return appointment;
   }
 

@@ -1,14 +1,6 @@
-<p>edit-section works!</p>
-
-
-{{appointment?.animal}}
-{{appointment?.doctorName}}
-{{appointment?.diagnostic}}
-{{appointment?.status}}
-{{appointment?.procedures}}
-{{appointment?.data}}
-{{appointment?.time}}
-
+<div class="title">
+  <h3>Edit appointment</h3>
+</div>
 
 <form *ngIf ="selectedProcedure" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="form">
 
@@ -84,8 +76,13 @@
   </div>
 
   <div>
-    <button class="submit-button" type="submit">Confirm appointment</button>
+    <button class="submit-button" type="submit" >Edit appointment</button>
   </div>
 
 
+
 </form>
+
+<div >
+  <button class="back-button"  routerLink="/appointments">Back</button>
+</div>
