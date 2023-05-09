@@ -24,7 +24,34 @@
   </table>
 
   <div>
-    <button class="procedure-button" >Add procedure</button>
+    <button *ngIf="showedForm==false" class="procedure-button" (click)="showNewProcedureForm(true)">Add procedure</button>
+  </div>
+
+  <div *ngIf="showedForm==true">
+    <form [formGroup]="proceduresFormGroup"class="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div><label>Procedure name</label>
+          <input class="input-space" formControlName="procedureName"type="text" >
+          <div *ngIf="procedureName?.invalid && (procedureName?.dirty || procedureName?.touched)" class="alert">
+            Procedure name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div><label>Price</label>
+          <input class="input-space" formControlName="price"type="text" >
+          <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="alert">
+            Price is required
+          </div>
+        </div>
+      </div>
+    <button class="submit-button">add</button>
+    </form>
+
+    <div>
+      <button class="back-button" (click)="showNewProcedureForm(false)">cancel</button>
+    </div>
   </div>
 
 

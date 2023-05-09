@@ -17,6 +17,9 @@ export class ProceduresService {
     return this.http.get<GetResponseProcedures>(this.appointmentsUrl).pipe(map(response => response._embedded.procedures));
   }
 
+  addNewProcedure(procedure: Procedure) {
+    return this.http.post<Appointment>(this.appointmentsUrl,procedure);
+  }
 }
 
 

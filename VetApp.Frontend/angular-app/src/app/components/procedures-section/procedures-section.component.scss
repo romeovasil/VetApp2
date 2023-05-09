@@ -4,7 +4,7 @@ table {
   margin-left: 10%;
   margin-right: 10%;
   border-collapse: collapse;
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: lavender;
 }
 
@@ -33,7 +33,6 @@ tbody tr:hover {
 }
 
 .back-button{
-  margin-top: 10px;
   margin-left: 10%;
   font-size: 15px;
   height: 30px;
@@ -51,7 +50,7 @@ tbody tr:hover {
   margin-top: 5%;
   color:salmon;
   font-weight: bolder;
-  margin-bottom: 120px;
+  margin-bottom: 50px;
 }
 
 .procedure-button{
@@ -64,4 +63,54 @@ tbody tr:hover {
   border-radius: 10px;
   border-color: black;
 
+}
+
+
+
+.form{
+  margin-left: 12%;
+  backdrop-filter: blur(7px);
+  width: 500px;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-space{
+  background-color: lightgoldenrodyellow;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.row{
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.submit-button{
+  margin-left: 30px;
+  margin-top:40px;
+  margin-bottom: 30px;
+  background-color: salmon;
+  font-size: 15px;
+  border-radius: 20px;
+  border-color: black;
+  font-weight: bold;
+  width: 200px;
+}
+
+.submit-button:hover{
+  background-color: green;
+  color: yellow;
+}
+
+.submit-button:active{
+  background-color: red;
+
+
+}
+
+.alert{
+  color: red;
+  margin-top: 3px;
 }

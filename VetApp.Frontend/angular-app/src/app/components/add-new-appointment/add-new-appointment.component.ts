@@ -73,6 +73,8 @@ export class AddNewAppointmentComponent implements OnInit{
     return appointment;
   }
 
+
+
   get animalName() { return this.checkoutFormGroup.get('animalName'); }
   get doctorName() { return this.checkoutFormGroup.get('doctorName'); }
   get date() { return this.checkoutFormGroup.get('date'); }
