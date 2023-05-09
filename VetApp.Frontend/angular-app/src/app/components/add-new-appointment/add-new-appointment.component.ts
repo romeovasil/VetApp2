@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
 import {CustomValidators} from "../../validators/customValidators";
+import {Procedure} from "../../common/procedure";
+import {ProceduresService} from "../../services/procedures.service";
 
 
 @Component({
@@ -12,10 +14,17 @@ import {CustomValidators} from "../../validators/customValidators";
 })
 export class AddNewAppointmentComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
+  proceduresList:Procedure[]=[];
 
-  constructor(private formBuilder:FormBuilder,private appointmentService:AppointmentsService) {
+  constructor(private formBuilder:FormBuilder,private appointmentService:AppointmentsService,private proceduresService:ProceduresService) {
   }
   ngOnInit(): void {
+
+    this.proceduresService.getProcedures().subscribe(data=>{
+      this.proceduresList=data;
+      console.log(this.proceduresList);
+    })
+
     this.checkoutFormGroup = this.formBuilder.group({
         animalName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),
         doctorName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),

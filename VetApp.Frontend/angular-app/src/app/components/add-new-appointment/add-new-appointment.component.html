@@ -46,9 +46,8 @@
 
     <div class="row">
       <div><label>Procedures</label> <select class="input-space" formControlName="procedures">
-        <option>Vaccin</option>
-        <option>Perfuzii</option>
-        <option>Deparazitare</option>
+            <option value="" disabled selected>Select a procedure</option>
+            <option *ngFor="let procedure of proceduresList">{{procedure.name}}</option>
       </select>
         <div *ngIf="procedures?.invalid && (procedures?.dirty || procedures?.touched)" class="alert">
           Select a procedure
