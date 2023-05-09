@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
+import {CustomValidators} from "../../validators/customValidators";
 
 
 @Component({
@@ -16,8 +17,8 @@ export class AddNewAppointmentComponent implements OnInit{
   }
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
-        animalName: new FormControl('',Validators.required),
-        doctorName: new FormControl('',Validators.required),
+        animalName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),
+        doctorName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),
         date: new FormControl('',Validators.required),
         time: new FormControl('',Validators.required),
         procedures: new FormControl('',Validators.required)
@@ -58,7 +59,7 @@ export class AddNewAppointmentComponent implements OnInit{
     appointment.data = this.date?.value;
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
-    appointment.status="creata";
+    appointment.status="Creata";
     appointment.diagnostic="";
     return appointment;
   }

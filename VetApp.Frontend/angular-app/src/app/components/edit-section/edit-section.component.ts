@@ -3,6 +3,7 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Appointment} from "../../common/appointment";
 import {AppointmentsService} from "../../services/appointments.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CustomValidators} from "../../validators/customValidators";
 
 @Component({
   selector: 'app-edit-section',
@@ -40,15 +41,15 @@ export class EditSectionComponent implements OnInit{
     );
 
     this.checkoutFormGroup = this.formBuilder.group({
-      animalName: new FormControl('',Validators.required),
-      doctorName: new FormControl('',Validators.required),
+      animalName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),
+      doctorName: new FormControl('',[Validators.required,CustomValidators.notOnlyWhitespace]),
       date: new FormControl('',Validators.required),
       time: new FormControl('',Validators.required),
-      status: new FormControl('',Validators.required),
+      status: new FormControl('',[Validators.required]),
       diagnostic: new FormControl(''),
       procedures: new FormControl('',Validators.required)
 
-    });
+    },{validators:CustomValidators.statusIfDiagnosticExists});
 
   }
 

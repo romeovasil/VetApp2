@@ -46,10 +46,16 @@
   </div>
 
   <div class="row">
-    <div><label>Status</label>
-      <input class="input-space"  formControlName="status" type="text" >
+    <div><label>Status</label> <select class="input-space" formControlName="status"  >
+      <option [ngValue]="'Creata'">Creata</option>
+      <option [ngValue]="'Confirmata'">Confirmata</option>
+      <option [ngValue]="'Incheiata'">Incheiata</option>
+    </select>
       <div *ngIf="status?.invalid && (status?.dirty || status?.touched)" class="alert">
         Select a status
+      </div>
+      <div *ngIf="checkoutFormGroup.invalid" class="alert">
+        Status can't be "Incheiata" because there is no diagnostic or other data is missing
       </div>
     </div>
   </div>
