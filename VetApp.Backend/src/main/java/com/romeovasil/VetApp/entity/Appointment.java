@@ -3,6 +3,9 @@ package com.romeovasil.VetApp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "appointment")
 @Data
@@ -26,6 +29,20 @@ public class Appointment {
     @Column(name = "procedures")
     private String procedures;
 
+//    @ManyToMany
+//    @JoinTable(
+//            name="appointment_procedure",
+//            joinColumns = @JoinColumn(name="appointment_id"),
+//            inverseJoinColumns = @JoinColumn(name="procedure_id")
+//    )
+//    private List<Procedure> procedureList;
+//
+//    public void addProcedure(Procedure procedure){
+//        if(procedureList ==null){
+//            procedureList=new ArrayList<>();
+//        }
+//        this.procedureList.add(procedure);
+//    }
 
 }
 
