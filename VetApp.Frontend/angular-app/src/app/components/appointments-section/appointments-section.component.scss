@@ -16,7 +16,7 @@
 
 }
 
-button{
+.doctor-button{
   background-color: lightsalmon;
   color:crimson;
   border-radius: 20px;
@@ -29,18 +29,29 @@ button{
 
 }
 
-button:hover{
+.doctor-button:hover{
   background-color: green;
   color:yellow;
 }
 
-button:active{
+.doctor-button:active{
   background-color: red;
   color:white;
 }
 
-.doctor-button{
+.doctor-buttons-section{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.back-button{
+  margin-top: 100px;
+  font-size: 15px;
+  height: 30px;
+  width: 80px;
+  background-color: salmon;
+  border-radius: 10px;
+  border-color: black;
+
 }

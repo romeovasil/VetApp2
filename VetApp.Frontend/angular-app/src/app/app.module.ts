@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditSectionComponent } from './components/edit-section/edit-section.component';
+import { ProceduresSectionComponent } from './components/procedures-section/procedures-section.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeSectionComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'appointments', component: AppointmentsSectionComponent},
   {path: 'appointments/all', component: AppointmentsTableComponent},
   {path: 'addNewAppointment', component: AddNewAppointmentComponent},
-  {path:'editAppointment/:id',component:EditSectionComponent}
+  {path:'editAppointment/:id',component:EditSectionComponent},
+  {path:'procedures',component:ProceduresSectionComponent}
 ]
 
 
@@ -34,7 +36,8 @@ const routes: Routes = [
     WelcomeSectionComponent,
     AppointmentsSectionComponent,
     AddNewAppointmentComponent,
-    EditSectionComponent
+    EditSectionComponent,
+    ProceduresSectionComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
