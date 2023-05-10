@@ -4,6 +4,7 @@ package com.romeovasil.VetApp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,12 +22,20 @@ public class Procedure {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="appointment_procedure",
             joinColumns = @JoinColumn(name="procedure_id"),
             inverseJoinColumns = @JoinColumn(name="appointment_id")
     )
     private List<Appointment> appointmentList;
+
+    public void addAppointment(Appointment appointment){
+        if(appointmentList ==null){
+            this.appointmentList=new ArrayList<>();
+        }
+        this.appointmentList.add(appointment);
+    }
+
 
 }

@@ -1,5 +1,7 @@
 package com.romeovasil.VetApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "appointment")
 @Data
+
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +20,7 @@ public class Appointment {
     @Column(name = "animal")
     private String animal;
     @Column(name = "data")
-    private String data;
+    private String date;
     @Column(name = "time")
     private String time;
     @Column(name = "doctor_name")
@@ -26,23 +29,23 @@ public class Appointment {
     private String diagnostic;
     @Column(name = "status")
     private String status;
-    @Column(name = "procedures")
-    private String procedures;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name="appointment_procedure",
-//            joinColumns = @JoinColumn(name="appointment_id"),
-//            inverseJoinColumns = @JoinColumn(name="procedure_id")
-//    )
-//    private List<Procedure> procedureList;
-//
-//    public void addProcedure(Procedure procedure){
-//        if(procedureList ==null){
-//            procedureList=new ArrayList<>();
-//        }
-//        this.procedureList.add(procedure);
-//    }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(
+            name="appointment_procedure",
+            joinColumns = @JoinColumn(name="appointment_id"),
+            inverseJoinColumns = @JoinColumn(name="procedure_id")
+    )
+
+    private List<Procedure> procedureList;
+
+    public void addProcedure(Procedure procedure){
+        if(procedureList ==null){
+            procedureList=new ArrayList<>();
+        }
+        this.procedureList.add(procedure);
+    }
 
 }
 
