@@ -8,11 +8,10 @@
   </div>
 
   <div class="doctor-buttons-section">
+
     <button class="doctor-button" routerLink="/appointments/all">All</button>
-    <button class="doctor-button" routerLink="/appointments/Marcel">Marcel</button>
-    <button class="doctor-button" routerLink="/appointments/Mircea">Mircea</button>
-    <button class="doctor-button" routerLink="/appointments/Ionel">Ionel</button>
-    <button class="doctor-button" routerLink="/appointments/Ion">Ion</button>
+    <button class="doctor-button" routerLink="/appointments/{{doctor}}" *ngFor="let doctor of doctors">{{doctor}}</button>
+
   </div>
   <div>
     <button class="back-button" routerLink="/">Back</button>
