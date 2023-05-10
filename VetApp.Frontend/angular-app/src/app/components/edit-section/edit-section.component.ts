@@ -18,7 +18,7 @@ export class EditSectionComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
   selectedProcedure: boolean=false;
   proceduresList:Procedure[] =[];
-  procedureToEdit!:Procedure;
+  proceduresToEdit:Procedure[]=[];
   selectedProcedures:Procedure[]=[];
 
   constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,
@@ -32,12 +32,11 @@ export class EditSectionComponent implements OnInit{
     this.appointmentsService.getAppointment(this.id).subscribe(
       data=> {this.appointment=data;
         this.selectedProcedures=data.procedureList;
-        this.procedureToEdit=data.procedureList[0];
         console.log(data)
     this.proceduresService.getProcedures().subscribe(data=>{
       this.proceduresList=data;
 
-      console.log(this.procedureToEdit);
+      console.log(this.proceduresToEdit);
     })
 
     this.checkoutFormGroup.patchValue({
@@ -79,19 +78,32 @@ export class EditSectionComponent implements OnInit{
       this.appointmentsService.editAppointment(appointment).subscribe(
         response => {
           console.log('Appointment saved successfully:', response);
-          this.checkoutFormGroup.reset();
-          this.router.navigateByUrl("\appointments");
-        },
-        error => {
-          console.error('Error saving appointment:', error);
-        }
-      );
+          this.proceduresToEdit.forEach((procedure) => {
+            let appointmentData = {
+              appointment: response,
+              procedure: procedure
+           };
+          this.proceduresService.addProcedureToAppointment(appointmentData).subscribe(
+            (procedureResponse) => {
+              console.log("Procedure added to appointment:", procedureResponse);
+            },
+            (procedureError) => {
+              console.error("Error adding procedure to appointment:", procedureError);
+            }
+          );
+        });
 
-
+      // Reset the form and the selected procedures
+      this.checkoutFormGroup.reset();
+      this.selectedProcedures = [];
+      this.router.navigate(["/appointments"]);
+    },
+    error => {
+      console.error('Error saving appointment:', error);
     }
-
-
-    }
+  );
+  }
+}
 
   createNewAppointment(){
     let appointment = new Appointment();
@@ -101,6 +113,11 @@ export class EditSectionComponent implements OnInit{
     appointment.date = this.date?.value;
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
+    if(<Procedure>this.proceduresList.find(procedure => procedure.name === this.procedures?.value)){
+      this.proceduresToEdit.push(<Procedure>this.proceduresList.find(procedure => procedure.name === this.procedures?.value));
+
+    }
+   console.log(this.proceduresToEdit);
     appointment.status=this.status?.value;
     appointment.diagnostic=this.diagnostic?.value;
     return appointment;
