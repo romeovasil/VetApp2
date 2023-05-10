@@ -31,7 +31,7 @@ public class Appointment {
     private String status;
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="appointment_procedure",
             joinColumns = @JoinColumn(name="appointment_id"),

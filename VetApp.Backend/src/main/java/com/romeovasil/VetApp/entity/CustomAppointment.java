@@ -13,12 +13,10 @@ public interface CustomAppointment {
     @Value("#{target.id}")
     long getId();
     String getAnimal();
-
     String getDate();
     String getTime();
     String getDoctorName();
     String getDiagnostic();
     String getStatus();
-
     List<Procedure> getProcedureList();
 }

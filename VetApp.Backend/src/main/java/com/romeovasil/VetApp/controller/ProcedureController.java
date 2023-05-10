@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/procedure")
 public class ProcedureController {
 
-    private ProcedureService procedureService;
+    private final ProcedureService procedureService;
 
     public ProcedureController(ProcedureService procedureService){
         this.procedureService=procedureService;
