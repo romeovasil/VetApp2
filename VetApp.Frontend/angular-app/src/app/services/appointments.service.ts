@@ -20,10 +20,10 @@ export class AppointmentsService {
 
 
   getAppointmentListPaginatedByDoctorName(doctorName:string,thePage:number,thePageSize:number): Observable<GetResponseAppointments> {
-    let pageUrl = `${this.appointmentsUrl}`+`?projection=customAppointment&sort=data,time&page=${thePage}&size=${thePageSize}`
+    let pageUrl = `${this.appointmentsUrl}`+`?projection=customAppointment&sort=date,time&page=${thePage}&size=${thePageSize}`
     if(doctorName!="all")
     {
-      pageUrl = `${this.appointmentsUrl}`+`/search/findByDoctorName?projection=customAppointment&sort=data,time&doctorName=${doctorName}&page=${thePage}&size=${thePageSize}`
+      pageUrl = `${this.appointmentsUrl}`+`/search/findByDoctorName?projection=customAppointment&sort=date,time&doctorName=${doctorName}&page=${thePage}&size=${thePageSize}`
 
 
     }

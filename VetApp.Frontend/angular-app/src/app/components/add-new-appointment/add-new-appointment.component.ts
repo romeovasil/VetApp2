@@ -15,6 +15,7 @@ import {ProceduresService} from "../../services/procedures.service";
 export class AddNewAppointmentComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
   proceduresList:Procedure[]=[];
+  selectedProcedures:Procedure[]=[];
 
   constructor(private formBuilder:FormBuilder,private appointmentService:AppointmentsService,private proceduresService:ProceduresService) {
   }
@@ -49,14 +50,29 @@ export class AddNewAppointmentComponent implements OnInit{
       this.appointmentService.addNewAppointment(appointment).subscribe(
         response => {
           console.log('Appointment saved successfully:', response);
+          this.selectedProcedures.forEach((procedure) => {
+            let appointmentData = {
+              appointment: response,
+              procedure: procedure
+            };
+            this.proceduresService.addProcedureToAppointment(appointmentData).subscribe(
+              (procedureResponse) => {
+                console.log("Procedure added to appointment:", procedureResponse);
+              },
+              (procedureError) => {
+                console.error("Error adding procedure to appointment:", procedureError);
+              }
+            );
+          });
+
+          // Reset the form and the selected procedures
           this.checkoutFormGroup.reset();
+          this.selectedProcedures = [];
         },
         error => {
           console.error('Error saving appointment:', error);
         }
       );
-
-
     }
   }
 
@@ -68,6 +84,8 @@ export class AddNewAppointmentComponent implements OnInit{
     appointment.date = this.date?.value;
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
+    this.selectedProcedures.push(<Procedure>this.proceduresList.find(procedure => procedure.name === this.procedures?.value));
+    console.log(this.selectedProcedures);
     appointment.status="Creata";
     appointment.diagnostic="";
     return appointment;

@@ -20,6 +20,12 @@ export class ProceduresService {
   addNewProcedure(procedure: Procedure) {
     return this.http.post<Appointment>(this.appointmentsUrl,procedure);
   }
+
+  addProcedureToAppointment(appointmentData:any){
+      const url = "http://localhost:8080/api/procedure/addNewProcedureToAppointment";
+      console.log(appointmentData)
+      return this.http.post<any>(url,appointmentData);
+  }
 }
 
 
