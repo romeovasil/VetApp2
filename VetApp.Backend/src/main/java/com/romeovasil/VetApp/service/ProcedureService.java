@@ -30,8 +30,6 @@ public class ProcedureService {
                 .orElseThrow(() -> new RuntimeException("Procedure not found"));
 
         appointment.addProcedure(procedure);
-        procedure.addAppointment(appointment);
         appointmentRepository.save(appointment);
-        procedureRepository.save(procedure);
     }
 }

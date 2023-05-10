@@ -65,7 +65,7 @@ export class AddNewAppointmentComponent implements OnInit{
     let appointment = new Appointment();
     appointment.animal=this.animalName?.value;
     appointment.doctorName=this.doctorName?.value;
-    appointment.data = this.date?.value;
+    appointment.date = this.date?.value;
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
     appointment.status="Creata";

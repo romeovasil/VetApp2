@@ -41,7 +41,7 @@ export class EditSectionComponent implements OnInit{
     this.checkoutFormGroup.patchValue({
       animalName: data.animal,
       doctorName: data.doctorName,
-      date: data.data,
+      date: data.date,
       time: data.time,
       procedures: data.procedures,
       status:data.status,
@@ -97,7 +97,7 @@ export class EditSectionComponent implements OnInit{
     appointment.id=this.id;
     appointment.animal=this.animalName?.value;
     appointment.doctorName=this.doctorName?.value;
-    appointment.data = this.date?.value;
+    appointment.date = this.date?.value;
     appointment.time = this.time?.value;
     appointment.procedures = this.procedures?.value;
     appointment.status=this.status?.value;

@@ -16,6 +16,7 @@ export class AppointmentsTableComponent implements OnInit{
   currentPageNumber:number=1;
   thePageSize:number=5;
   theTotalElements:number=0;
+  totalPrice:number=0;
 
   constructor(private appointmentService:AppointmentsService ,private route:ActivatedRoute,private router:Router) {
   }
@@ -37,6 +38,8 @@ export class AppointmentsTableComponent implements OnInit{
 
     this.appointmentService.getAppointmentListPaginatedByDoctorName(this.doctorName,this.currentPageNumber - 1, this.thePageSize).subscribe(data => {
       this.appointments = data._embedded.appointments;
+      console.log(this.appointments)
+      this.calculatePrice();
       this.theTotalElements = data.page.totalElements;
       this.thePageNumber = data.page.totalPages;
 
@@ -69,5 +72,15 @@ export class AppointmentsTableComponent implements OnInit{
     console.log("edit")
     console.log(tempAppointment.id)
     this.router.navigate(['/editAppointment',tempAppointment.id]);
+  }
+
+  private calculatePrice() {
+      for(let tempAppointment  of this.appointments){
+          let s = 0;
+          for(let procedure of tempAppointment.procedureList){
+            s=s+procedure.price;
+          }
+          tempAppointment.totalPrice=s;
+      }
   }
 }
