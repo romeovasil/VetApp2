@@ -69,8 +69,21 @@
     </div>
   </div>
 
+  <div class="selected-procedures" >
+       <div>
+         Selected procedures:
+
+       </div>
+    <br>
+    <div *ngFor="let selectedProcedure of selectedProcedures">
+      {{selectedProcedure.name}}
+    </div>
+  </div>
+
   <div class="row">
+
     <div><label>Procedures</label> <select class="input-space" formControlName="procedures" >
+      <option value="" disabled selected>Add new a procedure</option>
       <option [ngValue]="procedure.name" *ngFor="let procedure of proceduresList">{{procedure.name}}</option>
 
     </select>

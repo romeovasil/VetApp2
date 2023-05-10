@@ -14,7 +14,7 @@ export class AppointmentsService {
 
 
   getAppointment(id:number): Observable<Appointment> {
-    const appointmentUrl = `${this.appointmentsUrl}`+`/${id}`
+    const appointmentUrl = `${this.appointmentsUrl}`+`/${id}?projection=customAppointment`
     return this.http.get<Appointment>(appointmentUrl);
   }
 

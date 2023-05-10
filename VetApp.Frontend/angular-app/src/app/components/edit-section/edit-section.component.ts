@@ -18,7 +18,8 @@ export class EditSectionComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
   selectedProcedure: boolean=false;
   proceduresList:Procedure[] =[];
-  procedureToEdit:string="";
+  procedureToEdit!:Procedure;
+  selectedProcedures:Procedure[]=[];
 
   constructor(private route:ActivatedRoute,private appointmentsService:AppointmentsService,
               private formBuilder:FormBuilder,private router:Router,
@@ -30,20 +31,20 @@ export class EditSectionComponent implements OnInit{
     this.id=this.route.snapshot.paramMap.get('id');
     this.appointmentsService.getAppointment(this.id).subscribe(
       data=> {this.appointment=data;
-
+        this.selectedProcedures=data.procedureList;
+        this.procedureToEdit=data.procedureList[0];
+        console.log(data)
     this.proceduresService.getProcedures().subscribe(data=>{
       this.proceduresList=data;
 
+      console.log(this.procedureToEdit);
     })
-
-        this.procedureToEdit=data.procedures;
 
     this.checkoutFormGroup.patchValue({
       animalName: data.animal,
       doctorName: data.doctorName,
       date: data.date,
       time: data.time,
-      procedures: data.procedures,
       status:data.status,
       diagnostic:data.diagnostic
     });
@@ -59,7 +60,7 @@ export class EditSectionComponent implements OnInit{
       time: new FormControl('',Validators.required),
       status: new FormControl('',[Validators.required]),
       diagnostic: new FormControl(''),
-      procedures: new FormControl('',Validators.required)
+      procedures: new FormControl('')
 
     },{validators:CustomValidators.statusIfDiagnosticExists});
 
