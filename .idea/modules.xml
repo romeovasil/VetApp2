@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/VETAPP.iml" filepath="$PROJECT_DIR$/.idea/VETAPP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VetApp.Backend/VetApp.iml" filepath="$PROJECT_DIR$/VetApp.Backend/VetApp.iml" />
     </modules>
   </component>
 </project>
