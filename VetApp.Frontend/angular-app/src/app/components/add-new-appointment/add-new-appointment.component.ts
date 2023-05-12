@@ -16,6 +16,7 @@ export class AddNewAppointmentComponent implements OnInit{
   checkoutFormGroup!: FormGroup;
   proceduresList:Procedure[]=[];
   selectedProcedures:Procedure[]=[];
+  showAddNewProcedure:boolean=false;
 
   constructor(private formBuilder:FormBuilder,private appointmentService:AppointmentsService,private proceduresService:ProceduresService) {
   }
@@ -99,4 +100,8 @@ export class AddNewAppointmentComponent implements OnInit{
   get time() { return this.checkoutFormGroup.get('time'); }
   get procedures() { return this.checkoutFormGroup.get('procedures'); }
 
+  showNewProcedure(b: boolean) {
+    this.showAddNewProcedure=b;
+
+  }
 }

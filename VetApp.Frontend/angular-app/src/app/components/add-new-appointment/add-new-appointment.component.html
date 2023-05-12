@@ -55,9 +55,31 @@
       </div>
     </div>
 
+  <button type="button" (click)="showNewProcedure(true)">I want to add a new procedure</button>
+  <div *ngIf="showAddNewProcedure">
+  <div class="row" >
+    <div><label>New procedure name </label>
+      <input class="input-space"  formControlName="newProcedure" type="text">
+
+    </div>
+  </div>
+
+    <div class="row" >
+      <div><label>New procedure price </label>
+        <input class="input-space"  formControlName="newProcedure" type="text">
+
+      </div>
+    </div>
+
+
+    <button type="button">Add new procedure</button>
+    <button type="button" (click)="showNewProcedure(false)">Cancel</button>
+
+  </div>
     <div>
       <button class="submit-button" type="submit">Confirm appointment</button>
     </div>
+
 
 
 </form>
